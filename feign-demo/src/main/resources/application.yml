@@ -1,0 +1,14 @@
+server:
+  tomcat:
+    uri-encoding:UTF-8
+  port: 9001
+  context-path: /${spring.application.name}
+
+spring:
+  application:
+    name: feign-demo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
