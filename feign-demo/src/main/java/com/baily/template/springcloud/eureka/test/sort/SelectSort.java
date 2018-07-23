@@ -3,12 +3,14 @@ package com.baily.template.springcloud.eureka.test.sort;
 /**
  * @ClassName: SelectSort
  * @Description: 选择排序
+ * 1.直接选择排序
+ * 2.堆排序
  * @author:YB
  * @date:2018年07月19日 23:24
  */
 public class SelectSort {
     public static void main(String[] args) {
-        int[] a = {49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1};
+        int[] a = {49, 38, 65, 97, 76, 13};
         System.out.println("排序之前：");
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");

@@ -2,7 +2,8 @@ package com.baily.template.springcloud.eureka.test.sort;
 
 /**
  * @ClassName: InsertionSortCustom
- * @Description: 插入排序:1.直接插入排序 2.二分法插入排序 3.希尔排序
+ * @Description: 插入排序:
+ * 1.直接插入排序 2.二分法插入排序 3.希尔排序
  * @author:YB
  * @date:2018年07月19日 13:46
  */
