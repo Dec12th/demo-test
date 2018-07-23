@@ -40,7 +40,7 @@ public class RadixSort {
             times++;
         }
         // 建立十个队列
-        List<ArrayList> queue = new ArrayList<ArrayList>();
+        List<ArrayList> queue = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             ArrayList queue1 = new ArrayList();
             queue.add(queue1);
