@@ -31,7 +31,7 @@ public class InsertionSortCustom {
      * @param a
      */
     public static void directInsertionSort(int[] a) {
-        for (int i = 1; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             int temp = a[i];
             int j;
             for (j = i - 1; j >= 0; j--) {
@@ -51,17 +51,17 @@ public class InsertionSortCustom {
      * @param a
      */
     public static void binaryInsertionSort(int[] a) {
-        for (int i = 1; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             int temp = a[i];
             int left = 0;
             int right = i - 1;
             int mid = 0;
             while (left <= right) {
                 mid = (left + right) / 2;
-                if (temp > a[mid]) {
-                    left = mid + 1;
-                } else {
+                if (temp < a[mid]) {
                     right = mid - 1;
+                } else {
+                    left = mid + 1;
                 }
             }
             for (int j = i - 1; j >= left; j--) {
@@ -85,20 +85,20 @@ public class InsertionSortCustom {
         while (true) {
             d = d / 2;
             for (int x = 0; x < d; x++) {
-                for (int i = x+d; i < a.length; i = i+d) {
+                for (int i = x + d; i < a.length; i = i + d) {
                     int temp = a[i];
                     int j;
-                    for (j = i-d; j >=0 ; j = j-d) {
-                        if (a[j]>temp) {
-                            a[j+d] = a[j];
+                    for (j = i - d; j >= 0; j = j - d) {
+                        if (a[j] > temp) {
+                            a[j + d] = a[j];
                         } else {
                             break;
                         }
                     }
-                    a[j+d] = temp;
+                    a[j + d] = temp;
                 }
             }
-            if (d==1) {
+            if (d == 1) {
                 break;
             }
         }

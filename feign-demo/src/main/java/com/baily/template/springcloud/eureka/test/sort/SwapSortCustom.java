@@ -8,9 +8,9 @@ package com.baily.template.springcloud.eureka.test.sort;
  * @author:YB
  * @date:2018年07月23日 14:13
  */
-public class SwapSort {
+public class SwapSortCustom {
     public static void main(String[] args) {
-        int[] a = {49, 38, 65, 97, 76, 13};
+        int[] a = {49, 38, 65, 97, 49, 76, 13};
         System.out.println("排序之前：");
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
@@ -30,10 +30,8 @@ public class SwapSort {
      * @param a
      */
     public static void bubbleSort(int[] a) {
-        // 冒泡排序
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length - i - 1; j++) {
-                // 这里-i主要是每遍历一次都把最大的i个数沉到最底下去了，没有必要再替换了
+            for (int j = 0; j < a.length - 1 - i; j++) {
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
@@ -45,6 +43,7 @@ public class SwapSort {
 
     /**
      * 快速排序
+     *
      * @param a
      */
     private static void quick(int[] a) {
@@ -54,17 +53,16 @@ public class SwapSort {
     }
 
     private static void quickSort(int[] a, int low, int high) {
-        if (low < high) { // 如果不加这个判断递归会无法退出导致堆栈溢出异常
-            int middle = getMiddle(a, low, high);
-            quickSort(a, low, middle - 1);
-            quickSort(a, middle + 1, high);
+        if (low < high) {
+            int mid = getMiddle(a, low, high);
+            quickSort(a, low, mid - 1);
+            quickSort(a, mid + 1, high);
         }
     }
 
     private static int getMiddle(int[] a, int low, int high) {
-        int temp = a[low];// 基准元素
+        int temp = a[low];
         while (low < high) {
-            // 找到比基准元素小的元素位置
             while (low < high && a[high] >= temp) {
                 high--;
             }

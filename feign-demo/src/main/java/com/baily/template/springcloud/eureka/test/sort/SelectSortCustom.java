@@ -63,18 +63,18 @@ public class SelectSortCustom {
      * @param lastIndex
      */
     private static void buildMaxHeap(int[] data, int lastIndex) {
-        for (int i = (lastIndex - 1) / 2; i >= 0; i--) {
+        for (int i = (lastIndex-1)/2; i >=0 ; i--) {
             int k = i;
-            while (2 * k + 1 <= lastIndex) {
-                int leftC = 2 * k + 1;
-                if (leftC < lastIndex) {
-                    if (data[leftC] < data[leftC + 1]) {
-                        leftC++;
+            while (2*k+1<=lastIndex) {
+                int biggerIndex = 2*k+1;
+                if (biggerIndex<lastIndex) {
+                    if (data[biggerIndex]<data[biggerIndex+1]) {
+                        biggerIndex++;
                     }
                 }
-                if (data[k] < data[leftC]) {
-                    swap(data, k, leftC);
-                    k = leftC;
+                if (data[k]<data[biggerIndex]) {
+                    swap(data,k,biggerIndex);
+                    k = biggerIndex;
                 } else {
                     break;
                 }

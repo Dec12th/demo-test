@@ -1,5 +1,7 @@
 package com.baily.template.springcloud.eureka.test.sort;
 
+import java.util.Arrays;
+
 /**
  * @ClassName: SelectSort
  * @Description: 选择排序
@@ -56,6 +58,7 @@ public class SelectSort {
             buildMaxHeap(a, a.length - 1 - i);
             // 交换堆顶和最后一个元素
             swap(a, 0, a.length - 1 - i);
+            System.out.println(Arrays.toString(a));
         }
     }
 
