@@ -9,10 +9,10 @@ import java.util.List;
  * @author:YB
  * @date:2018年07月23日 14:16
  */
-public class RadixSort {
+public class RadixSortCustom {
 
     public static void main(String[] args) {
-        int[] a = {49, 38, 65, 97, 76, 23,13};
+        int[] a = {49, 38, 65, 97, 76, 23, 13};
         System.out.println("排序之前：");
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
@@ -27,45 +27,47 @@ public class RadixSort {
     }
 
     private static void sort(int[] array) {
-        // 找到最大数，确定要排序几趟
+        //找最大值
         int max = 0;
         for (int i = 0; i < array.length; i++) {
-            if (max < array[i]) {
+            if (array[i] > max) {
                 max = array[i];
             }
         }
-        // 判断位数
+
+        //计算次数
         int times = 0;
         while (max > 0) {
             max = max / 10;
             times++;
         }
-        // 建立十个队列
-        List<ArrayList> queue = new ArrayList<>();
+
+        //新建10个队列
+        List<ArrayList> queue = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
-            ArrayList queue1 = new ArrayList();
-            queue.add(queue1);
+            queue.add(new ArrayList());
         }
-        // 进行times次分配和收集
+
+        //进行times次分配和手机
         for (int i = 0; i < times; i++) {
-            // 分配
+            //分配
             for (int j = 0; j < array.length; j++) {
                 int x = array[j] % (int) Math.pow(10, i + 1) / (int) Math.pow(10, i);
-                ArrayList queue2 = queue.get(x);
-                queue2.add(array[j]);
-                queue.set(x, queue2);
+                ArrayList queue1 = queue.get(x);
+                queue1.add(array[j]);
+                queue.set(x,queue1);
             }
-            // 收集
+
+            //收集
             int count = 0;
             for (int j = 0; j < 10; j++) {
-                while (queue.get(j).size() > 0) {
-                    ArrayList<Integer> queue3 = queue.get(j);
-                    array[count] = queue3.get(0);
-                    queue3.remove(0);
+                while (queue.get(j).size()>0) {
+                    ArrayList<Integer> queue2 = queue.get(j);
+                    array[count] = queue2.get(0);
+                    queue2.remove(0);
                     count++;
                 }
             }
-
         }
     }
 }
